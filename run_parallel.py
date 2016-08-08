@@ -28,7 +28,7 @@ def multiprocess(function, iterator, func_args=None, combine=True, n_pool=-1, in
     elif n_pool > 1 and n_pool  <= mp.cpu_count():
         pool = mp.Pool(processes=n_pool)
     else:
-        print "n_pool is out of range for cpu count!"
+        raise ValueError("n_pool is out of range for cpu count!")
     
     # Apply Async (returns process once complete
     if include_process_num == True:
